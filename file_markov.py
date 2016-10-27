@@ -80,8 +80,9 @@ def title_exceptions(word, **kwargs):
             # check for possesive apostrophes
             if s=="'" and dots[-1].upper()=="S":
                 return s.join( [titlecase.titlecase( i, title_exceptions ) for i in dots[:-1]] + [dots[-1].lower()] )
-            if s=="'" and dots[-2:].upper()=="RE":
-                return s.join( [titlecase.titlecase( i, title_exceptions ) for i in dots[:-2]] + [dots[-2:].lower()] )
+            # check for you're and other contractions
+            if word_test.upper() in ["YOU'RE","DON'T","HAVEN'T"]:
+                return s.join( [titlecase.titlecase( i, title_exceptions ) for i in dots[:-1]] + [dots[-1].lower()] )
             return s.join( [titlecase.titlecase( i, title_exceptions ) for i in dots] )
         
     # words with only vowels in (treat as acronyms)
