@@ -10,7 +10,7 @@ if __name__ == "__main__":
     p.add('-f', '--file', help='File to use as a base ()')
     p.add('-e', '--encoding', default='utf8', help='Encoding for file')
     p.add('--state-size', default=1, type=int, help='State size for markov chain')
-    p.add('--max-sentences', default=10, help='Number of sentences to return')
+    p.add('--max-sentences', default=10, type=int, help='Number of sentences to return')
     
     options = p.parse_args()
     
